@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class CameraRotation : MonoBehaviour
 {
     // WSAD movemnt
     // Jump
@@ -14,14 +14,16 @@ public class PlayerController : MonoBehaviour
     public Transform orientation;
     public Transform player;
     public Transform playerObj;
-    public Rigidbody rigidbody;
+    //public Rigidbody rigidbody;
 
     public float rotationSpeed;
 
+    private Vector3 inputDir;
+
     private void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;   // locking the cursor the the center?
+        Cursor.visible = false;     // hiding the cursor i guess
     }
 
     private void Update()
@@ -33,7 +35,7 @@ public class PlayerController : MonoBehaviour
         // getting the wsad inputs
         float horizontalinput = Input.GetAxis("Horizontal"); // A D movement 
         float veritcalinput = Input.GetAxis("Vertical");    // W S movement
-        Vector3 inputDir = orientation.forward * veritcalinput + orientation.right * horizontalinput;
+        inputDir = orientation.forward * veritcalinput + orientation.right * horizontalinput;
 
         if (inputDir != Vector3.zero)
         {
