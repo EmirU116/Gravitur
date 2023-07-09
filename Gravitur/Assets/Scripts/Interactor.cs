@@ -6,7 +6,16 @@ public class Interactor : MonoBehaviour
 {
     public float interactionDistance = 2f;   // The maximum distance to interact with objects
 
+    [Header("Animation")] 
+    public Animation doorOpening;
+    public Animation closeDoor;
+    
+    [Header("Interaction")]
+    private float rotationAngle = 90f;
     private GameObject currentInteractable;  // The currently interactable object
+    public  GameObject DoorObject;
+    private Transform Door;
+    [SerializeField] private bool doorOpen;
 
     void Update()
     {
@@ -30,6 +39,11 @@ public class Interactor : MonoBehaviour
             // Store the reference to the current interactable object
             currentInteractable = other.gameObject;
         }
+
+        if (other.CompareTag("Door"))
+        {
+            OpenDoor();
+        }
     }
 
     void OnTriggerExit(Collider other)
@@ -40,6 +54,11 @@ public class Interactor : MonoBehaviour
             // Clear the reference to the current interactable object
             currentInteractable = null;
         }
+
+        if (other.CompareTag("Door"))
+        {
+            CloseDoor();
+        }
     }
 
     void InteractWithObject(GameObject interactable)
@@ -49,5 +68,15 @@ public class Interactor : MonoBehaviour
 
         // TODO: Implement your interaction logic here
         Destroy(interactable);
+    }
+
+    void OpenDoor()
+    {
+        doorOpening.Play("OpenDoor");
+    }
+
+    void CloseDoor()
+    {
+        closeDoor.Play("CloseDoor");
     }
 }
