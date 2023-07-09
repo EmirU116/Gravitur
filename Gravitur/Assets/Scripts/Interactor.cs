@@ -28,6 +28,11 @@ public class Interactor : MonoBehaviour
                 // Interact with the object
                 InteractWithObject(currentInteractable);
             }
+
+            if (doorOpen)
+            {
+                OpenDoor();
+            }
         }
     }
 
@@ -42,7 +47,7 @@ public class Interactor : MonoBehaviour
 
         if (other.CompareTag("Door"))
         {
-            OpenDoor();
+            doorOpen = true;
         }
     }
 
@@ -57,6 +62,7 @@ public class Interactor : MonoBehaviour
 
         if (other.CompareTag("Door"))
         {
+            doorOpen = false;
             CloseDoor();
         }
     }
@@ -72,11 +78,13 @@ public class Interactor : MonoBehaviour
 
     void OpenDoor()
     {
+        // playing open animation
         doorOpening.Play("OpenDoor");
     }
 
     void CloseDoor()
     {
+        // playing closing animation
         closeDoor.Play("CloseDoor");
     }
 }
