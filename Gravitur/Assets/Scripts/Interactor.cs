@@ -9,8 +9,12 @@ public class Interactor : MonoBehaviour
     [Header("Animation")] 
     public Animation doorOpening;
     public Animation closeDoor;
+
+    [Header("Interaction")] 
+    public GameObject keyMesh;
+
+    [SerializeField] private bool hasKey;
     
-    [Header("Interaction")]
     private float rotationAngle = 90f;
     private GameObject currentInteractable;  // The currently interactable object
     private Transform Door;
@@ -50,7 +54,7 @@ public class Interactor : MonoBehaviour
             currentInteractable = other.gameObject;
         }
         // Gets accessability when in the collider
-        if (other.CompareTag("Door"))
+        if (hasKey && other.CompareTag("Door"))
         {
             accessable = true;
             Displayer.enabled = true;
@@ -93,7 +97,17 @@ public class Interactor : MonoBehaviour
         Debug.Log("Interacting with " + interactable.name);
 
         // TODO: Implement your interaction logic here
-        Destroy(interactable);
+        // Finding key logic for unlocking door
+        interactable.SetActive(false);
+        
+        if (interactable.name == "Key")
+        {
+            hasKey = true; 
+        }
+        else
+        {
+            hasKey = false;
+        }
 
     }
 
