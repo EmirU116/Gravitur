@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Interactor : MonoBehaviour
 {
@@ -12,10 +13,13 @@ public class Interactor : MonoBehaviour
     [Header("Interaction")]
     private float rotationAngle = 90f;
     private GameObject currentInteractable;  // The currently interactable object
-    //public  GameObject DoorObject;
     private Transform Door;
+    
     [SerializeField] private bool doorOpen;
     [SerializeField] private bool accessable;
+
+    [Header("UI")] 
+    public Canvas Displayer;
 
     void Update()
     {
@@ -49,6 +53,7 @@ public class Interactor : MonoBehaviour
         if (other.CompareTag("Door"))
         {
             accessable = true;
+            Displayer.enabled = true;
         }
         
     }
@@ -70,11 +75,13 @@ public class Interactor : MonoBehaviour
                 CloseDoor();
                 doorOpen = false;
                 accessable = false;
+                Displayer.enabled = false;
             }
             // This is for so that closing door animation is not playing when going away only from door
             if (accessable)
             {
                 accessable = false;
+                Displayer.enabled = false;
             }
         }
         
