@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Interactor : MonoBehaviour
@@ -16,6 +17,7 @@ public class Interactor : MonoBehaviour
     public  GameObject DoorObject;
     private Transform Door;
     [SerializeField] private bool doorOpen;
+    [SerializeField] private bool accessable;
 
     void Update()
     {
@@ -29,9 +31,10 @@ public class Interactor : MonoBehaviour
                 InteractWithObject(currentInteractable);
             }
 
-            if (doorOpen)
+            if (accessable)
             {
                 OpenDoor();
+                doorOpen = true;
             }
         }
     }
@@ -44,11 +47,11 @@ public class Interactor : MonoBehaviour
             // Store the reference to the current interactable object
             currentInteractable = other.gameObject;
         }
-
         if (other.CompareTag("Door"))
         {
-            doorOpen = true;
+            accessable = true;
         }
+        
     }
 
     void OnTriggerExit(Collider other)
@@ -59,12 +62,21 @@ public class Interactor : MonoBehaviour
             // Clear the reference to the current interactable object
             currentInteractable = null;
         }
-
         if (other.CompareTag("Door"))
         {
-            doorOpen = false;
-            CloseDoor();
+            if (doorOpen)
+            {
+                CloseDoor();
+                doorOpen = false;
+                accessable = false;
+            }
+
+            if (accessable)
+            {
+                accessable = false;
+            }
         }
+        
     }
 
     void InteractWithObject(GameObject interactable)
@@ -74,6 +86,7 @@ public class Interactor : MonoBehaviour
 
         // TODO: Implement your interaction logic here
         Destroy(interactable);
+
     }
 
     void OpenDoor()
