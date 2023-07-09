@@ -147,6 +147,7 @@ GameObject:
   - component: {fileID: 2097427840983564916}
   - component: {fileID: 791571875934612668}
   - component: {fileID: 3064274113093171104}
+  - component: {fileID: 5888555851162439489}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -217,6 +218,22 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 1024
+--- !u!114 &5888555851162439489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4492521580339820145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b3474808e5d3b443a04c8b851d5d263, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doorOpening: {fileID: 0}
+  closeDoor: {fileID: 0}
+  doorOpen: 0
+  accessable: 0
 --- !u!1 &6248947952466278101
 GameObject:
   m_ObjectHideFlags: 0
@@ -281,7 +298,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: e0613cb7091a12f4fa6968424a592f7e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

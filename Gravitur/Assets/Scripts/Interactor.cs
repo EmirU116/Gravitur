@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class Interactor : MonoBehaviour
 {
-    public float interactionDistance = 2f;   // The maximum distance to interact with objects
-
     [Header("Animation")] 
     public Animation doorOpening;
     public Animation closeDoor;
@@ -14,7 +12,7 @@ public class Interactor : MonoBehaviour
     [Header("Interaction")]
     private float rotationAngle = 90f;
     private GameObject currentInteractable;  // The currently interactable object
-    public  GameObject DoorObject;
+    //public  GameObject DoorObject;
     private Transform Door;
     [SerializeField] private bool doorOpen;
     [SerializeField] private bool accessable;
@@ -30,7 +28,7 @@ public class Interactor : MonoBehaviour
                 // Interact with the object
                 InteractWithObject(currentInteractable);
             }
-
+            // Opens the door
             if (accessable)
             {
                 OpenDoor();
@@ -47,6 +45,7 @@ public class Interactor : MonoBehaviour
             // Store the reference to the current interactable object
             currentInteractable = other.gameObject;
         }
+        // Gets accessability when in the collider
         if (other.CompareTag("Door"))
         {
             accessable = true;
@@ -62,15 +61,17 @@ public class Interactor : MonoBehaviour
             // Clear the reference to the current interactable object
             currentInteractable = null;
         }
+        // Checks if the existing object has the tag Door
         if (other.CompareTag("Door"))
         {
+            // Closes door when going away from it
             if (doorOpen)
             {
                 CloseDoor();
                 doorOpen = false;
                 accessable = false;
             }
-
+            // This is for so that closing door animation is not playing when going away only from door
             if (accessable)
             {
                 accessable = false;
