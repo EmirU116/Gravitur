@@ -27,6 +27,10 @@ public class Interactor : MonoBehaviour
     [Header("UI")] 
     public Canvas Displayer;
 
+    public GameObject LetterDisplayer;
+    public Canvas LetterUI;
+    [SerializeField] private bool showLetter;
+
     void Update()
     {
         // Check for interaction input
@@ -46,6 +50,24 @@ public class Interactor : MonoBehaviour
                 hasKey = false;
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            if (showLetter)
+            {
+                LetterDisplayer.SetActive(false);
+                LetterUI.enabled = true;
+                showLetter = false;
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            if (LetterUI.enabled == true)
+            {
+                LetterUI.enabled = false;
+            }
+        }
     }
 
     void OnTriggerEnter(Collider other)
@@ -61,6 +83,11 @@ public class Interactor : MonoBehaviour
         {
             accessable = true;
             Displayer.enabled = true;
+        }
+
+        if (other.CompareTag("Letter"))
+        {
+            showLetter = true;
         }
     }
 
@@ -90,7 +117,10 @@ public class Interactor : MonoBehaviour
                 Displayer.enabled = false;
             }
         }
-        
+        if (other.CompareTag("Letter"))
+        {
+            showLetter = false;
+        }
     }
 
     void InteractWithObject(GameObject interactable)
@@ -102,11 +132,12 @@ public class Interactor : MonoBehaviour
         // Finding key logic for unlocking door
         interactable.SetActive(false);
         
+        // Interacting with key
         if (interactable.name == "Key")
         {
             hasKey = true;
         }
-
+        // Objectives for finding the key
         if (interactable.name == "Cylinder")
         {
             secretWall.SetActive(false);
@@ -127,5 +158,6 @@ public class Interactor : MonoBehaviour
 
     void SecretWall()
     {
+        // play animation for secret door
     }
 }
