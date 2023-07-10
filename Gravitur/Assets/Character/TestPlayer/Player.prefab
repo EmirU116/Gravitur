@@ -148,6 +148,7 @@ GameObject:
   - component: {fileID: 791571875934612668}
   - component: {fileID: 3064274113093171104}
   - component: {fileID: 5888555851162439489}
+  - component: {fileID: 2103721374199306334}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -239,6 +240,33 @@ MonoBehaviour:
   doorOpen: 0
   accessable: 0
   Displayer: {fileID: 0}
+  LetterDisplayer: {fileID: 0}
+  LetterUI: {fileID: 0}
+  showLetter: 0
+--- !u!114 &2103721374199306334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4492521580339820145}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0a0ccffe2ee58944b826034240f9419, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doorOpening: {fileID: 0}
+  closeDoor: {fileID: 0}
+  keyMesh: {fileID: 0}
+  secretWall: {fileID: 0}
+  objectiveObject: {fileID: 0}
+  hasKey: 0
+  doorOpen: 0
+  accessible: 0
+  displayer: {fileID: 0}
+  letterDisplayer: {fileID: 0}
+  letterUI: {fileID: 0}
+  showLetter: 0
 --- !u!1 &6248947952466278101
 GameObject:
   m_ObjectHideFlags: 0

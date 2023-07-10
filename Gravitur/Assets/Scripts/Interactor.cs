@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class Interactor : MonoBehaviour
@@ -30,7 +32,6 @@ public class Interactor : MonoBehaviour
     public GameObject LetterDisplayer;
     public Canvas LetterUI;
     [SerializeField] private bool showLetter;
-
     void Update()
     {
         // Check for interaction input
