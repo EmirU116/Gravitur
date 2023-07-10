@@ -150,7 +150,7 @@ GameObject:
   - component: {fileID: 5888555851162439489}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -164,13 +164,13 @@ Transform:
   m_GameObject: {fileID: 4492521580339820145}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.4159107, y: -3.65, z: 3.8262336}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.6194813, y: 1.1931369, z: 0.6194813}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7245007962269228360}
   - {fileID: 3488903430088806622}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &791571875934612668
 Rigidbody:
@@ -232,8 +232,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doorOpening: {fileID: 0}
   closeDoor: {fileID: 0}
+  keyMesh: {fileID: 0}
+  secretWall: {fileID: 0}
+  ObjectiveObject: {fileID: 0}
+  hasKey: 0
   doorOpen: 0
   accessable: 0
+  Displayer: {fileID: 0}
 --- !u!1 &6248947952466278101
 GameObject:
   m_ObjectHideFlags: 0
