@@ -41,6 +41,7 @@ public class Interactor : MonoBehaviour
             {
                 OpenDoor();
                 doorOpen = true;
+                hasKey = false;
             }
         }
     }
@@ -59,7 +60,6 @@ public class Interactor : MonoBehaviour
             accessable = true;
             Displayer.enabled = true;
         }
-        
     }
 
     void OnTriggerExit(Collider other)
@@ -102,13 +102,8 @@ public class Interactor : MonoBehaviour
         
         if (interactable.name == "Key")
         {
-            hasKey = true; 
+            hasKey = true;
         }
-        else
-        {
-            hasKey = false;
-        }
-
     }
 
     void OpenDoor()
