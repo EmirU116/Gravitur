@@ -12,13 +12,15 @@ public class Interactor : MonoBehaviour
 
     [Header("Interaction")] 
     public GameObject keyMesh;
+    public GameObject secretWall;
+    public GameObject ObjectiveObject;
 
     [SerializeField] private bool hasKey;
     
     private float rotationAngle = 90f;
     private GameObject currentInteractable;  // The currently interactable object
     private Transform Door;
-    
+
     [SerializeField] private bool doorOpen;
     [SerializeField] private bool accessable;
 
@@ -104,6 +106,11 @@ public class Interactor : MonoBehaviour
         {
             hasKey = true;
         }
+
+        if (interactable.name == "Cylinder")
+        {
+            secretWall.SetActive(false);
+        }
     }
 
     void OpenDoor()
@@ -116,5 +123,9 @@ public class Interactor : MonoBehaviour
     {
         // playing closing animation
         closeDoor.Play("CloseDoor");
+    }
+
+    void SecretWall()
+    {
     }
 }
