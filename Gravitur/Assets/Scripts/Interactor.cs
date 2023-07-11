@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -29,11 +30,21 @@ public class Interactor : MonoBehaviour
     [Header("UI")] 
     public Canvas Displayer;
 
+    [Header("UI Note Message")]
     public GameObject LetterDisplayer;
     public Canvas LetterUI;
-    [SerializeField] private bool showLetter;
+    [SerializeField] public bool showLetter;
+
+    public  NoteScript ns;
+
+    private void Start()
+    {
+        LetterUI.enabled = false;
+    }
+
     void Update()
     {
+        ns.messageNote.text = ns.note;
         // Check for interaction input
         if (Input.GetKeyDown(KeyCode.E))
         {
@@ -56,7 +67,7 @@ public class Interactor : MonoBehaviour
         {
             if (showLetter)
             {
-                LetterDisplayer.SetActive(false);
+                //LetterDisplayer.SetActive(false);
                 LetterUI.enabled = true;
                 showLetter = false;
             }
@@ -67,6 +78,7 @@ public class Interactor : MonoBehaviour
             if (LetterUI.enabled == true)
             {
                 LetterUI.enabled = false;
+                ns.messageNote.text = null;
             }
         }
     }

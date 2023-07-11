@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 7917638289977278547}
   - component: {fileID: 8548580104523436780}
   - component: {fileID: 1382627221143332441}
+  - component: {fileID: 1188375316767136613}
+  - component: {fileID: 5325666050074732952}
   m_Layer: 0
   m_Name: LetterObject
   m_TagString: Untagged
@@ -105,3 +107,39 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &1188375316767136613
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7816519006638079704}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.8666503, y: 1, z: 1.8582158}
+  m_Center: {x: -0.024840951, y: 0, z: -0.09666538}
+--- !u!114 &5325666050074732952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7816519006638079704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16d7a2c225ee8564497b4906e5a5cde4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _noteImage: {fileID: 0}
+  MessagePanel: {fileID: 0}
+  action: 0
