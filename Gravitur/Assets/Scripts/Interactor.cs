@@ -30,21 +30,11 @@ public class Interactor : MonoBehaviour
     [Header("UI")] 
     public Canvas Displayer;
 
-    [Header("UI Note Message")]
-    public GameObject LetterDisplayer;
-    public Canvas LetterUI;
-    [SerializeField] public bool showLetter;
+    public NoteScript ns;
 
-    public  NoteScript ns;
-
-    private void Start()
-    {
-        LetterUI.enabled = false;
-    }
 
     void Update()
     {
-        ns.messageNote.text = ns.note;
         // Check for interaction input
         if (Input.GetKeyDown(KeyCode.E))
         {
@@ -63,24 +53,15 @@ public class Interactor : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            if (showLetter)
-            {
-                //LetterDisplayer.SetActive(false);
-                LetterUI.enabled = true;
-                showLetter = false;
-            }
-        }
+        // if (Input.GetKeyDown(KeyCode.F))
+        // {
+        //     if (ns.canOpen)
+        //     {
+        //         ns.isRead = true;
+        //         ns.UI.enabled = true;
+        //     }
+        // }
 
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            if (LetterUI.enabled == true)
-            {
-                LetterUI.enabled = false;
-                ns.messageNote.text = null;
-            }
-        }
     }
 
     void OnTriggerEnter(Collider other)
@@ -91,17 +72,18 @@ public class Interactor : MonoBehaviour
             // Store the reference to the current interactable object
             currentInteractable = other.gameObject;
         }
-        // Gets accessability when in the collider
+        // Gets accessibility when in the collider
         if (hasKey && other.CompareTag("Door"))
         {
             accessable = true;
             Displayer.enabled = true;
         }
 
-        if (other.CompareTag("Letter"))
-        {
-            showLetter = true;
-        }
+        // if (other.CompareTag("Letter"))
+        // {
+        //     ns.isRead = true;
+        // }
+
     }
 
     void OnTriggerExit(Collider other)
@@ -130,9 +112,13 @@ public class Interactor : MonoBehaviour
                 Displayer.enabled = false;
             }
         }
+
         if (other.CompareTag("Letter"))
         {
-            showLetter = false;
+            if (ns.canOpen)
+            {
+                ns.canOpen = false;
+            }
         }
     }
 

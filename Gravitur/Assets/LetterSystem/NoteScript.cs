@@ -11,42 +11,31 @@ using Image = UnityEngine.UI.Image;
 
 public class NoteScript : MonoBehaviour
 {
-    private bool isNoteOpen;
-    public TMP_Text messageNote;
-    public Canvas noteUI;
+    public Canvas UI;
+    public string letterMessage;
+    public Text messageText;
 
-    public string note;
+    public bool isRead = false;
 
-    private Interactor _interactor;
-
-    public void Update()
-    {
-        messageNote.text = note;
-    }
+    public bool canOpen = false;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !isRead)
         {
-            _interactor.showLetter = true;
+            canOpen = true;
+            // Display the unique message for this letter on the UI Text component
+            messageText.text = letterMessage;
+            
+            isRead = true;
+            UI.enabled = true;
         }
     }
-    
+
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
-        {
-            _interactor.showLetter = false;
-        }
+        canOpen = false;
+        UI.enabled = false;
     }
-
-    public void ShowNote()
-    {
-        noteUI.enabled = true;
-    }
-
-    public void DisableNote()
-    {
-        noteUI.enabled = false;
-    }
+    
 }
