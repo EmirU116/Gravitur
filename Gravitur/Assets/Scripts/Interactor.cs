@@ -113,13 +113,13 @@ public class Interactor : MonoBehaviour
             }
         }
 
-        if (other.CompareTag("Letter"))
-        {
-            if (ns.canOpen)
-            {
-                ns.canOpen = false;
-            }
-        }
+        // if (other.CompareTag("Letter"))
+        // {
+        //     if (ns.canOpen)
+        //     {
+        //         ns.canOpen = false;
+        //     }
+        // }
     }
 
     void InteractWithObject(GameObject interactable)

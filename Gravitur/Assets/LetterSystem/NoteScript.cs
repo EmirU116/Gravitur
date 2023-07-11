@@ -13,7 +13,7 @@ public class NoteScript : MonoBehaviour
 {
     public Canvas UI;
     public string letterMessage;
-    public Text messageText;
+    public TMP_Text messageText;
 
     public bool isRead = false;
 
