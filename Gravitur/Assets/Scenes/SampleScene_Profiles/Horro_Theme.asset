@@ -1456,12 +1456,12 @@ MonoBehaviour:
     overrideState: 0
     value: 0
   dirtTexture:
-    overrideState: 0
-    value: {fileID: 0}
+    overrideState: 1
+    value: {fileID: 2800000, guid: 171cab007d3adf345aea0e23db1517b3, type: 3}
     defaultState: 1
   dirtIntensity:
-    overrideState: 0
-    value: 0
+    overrideState: 1
+    value: 9.04
 --- !u!114 &8432646100052125722
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1480,7 +1480,7 @@ MonoBehaviour:
     value: 1
   preset:
     overrideState: 1
-    value: 2
+    value: 3
   maximumIterationCount:
     overrideState: 0
     value: 16
@@ -1494,8 +1494,8 @@ MonoBehaviour:
     overrideState: 1
     value: 100
   distanceFade:
-    overrideState: 0
+    overrideState: 1
     value: 0.5
   vignette:
-    overrideState: 0
+    overrideState: 1
     value: 0.5
