@@ -29,8 +29,17 @@ public class Teleporting : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            playerObject.position = destination.position;   // spawns the player to destination position
-            loopCounting++; // increment 
+
+            // Calculate the direction from player to destination
+            Vector3 direction = destination.position - playerObject.position;
+
+            // Teleport the player to the destination position
+            playerObject.position = destination.position;
+
+            // Make the player look towards the destination
+            playerObject.LookAt(playerObject.position + direction);
+
+            loopCounting++;
         }
     }
 }

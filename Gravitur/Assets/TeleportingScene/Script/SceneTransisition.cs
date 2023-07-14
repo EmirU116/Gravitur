@@ -13,8 +13,8 @@ public class SceneTransisition : MonoBehaviour
     private void Start()
     {
         // starting the game with first scene
-        GO1.SetActive(true);    
-        GO2.SetActive(false);
+        //GO1.SetActive(true);    
+        //GO2.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider other)
