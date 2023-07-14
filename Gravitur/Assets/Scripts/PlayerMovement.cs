@@ -25,6 +25,10 @@ public class PlayerMovement : MonoBehaviour
 
    public LayerMask whatIsGround;
    private bool grounded;
+
+   [Header("Sound Effect")] 
+   public AudioSource src;
+   
    private void Start()
    {
       rb = GetComponent<Rigidbody>();
@@ -48,6 +52,15 @@ public class PlayerMovement : MonoBehaviour
       {
          rb.drag = 0;
       }
+
+      if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D) ||Input.GetKey(KeyCode.A))
+      {
+         src.enabled = true;
+      }
+      else
+      {
+         src.enabled = false;
+      }
    }
 
    private void FixedUpdate()
@@ -59,6 +72,7 @@ public class PlayerMovement : MonoBehaviour
    {
       horizontalInput = Input.GetAxisRaw("Horizontal");
       verticalInput = Input.GetAxisRaw("Vertical");
+      
    }
 
    void MovePlayer()
