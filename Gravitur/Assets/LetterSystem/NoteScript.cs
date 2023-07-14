@@ -14,6 +14,8 @@ public class NoteScript : MonoBehaviour
     public Canvas UI;
     public string letterMessage;
     public TMP_Text messageText;
+    public AudioSource src;
+    public AudioClip sfx1, sfx2;
 
     public bool isRead = false;
 
@@ -29,6 +31,9 @@ public class NoteScript : MonoBehaviour
             
             isRead = true;
             UI.enabled = true;
+
+            src.clip = sfx1;
+            src.Play();
         }
     }
 
