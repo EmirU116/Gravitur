@@ -29144,7 +29144,7 @@ PrefabInstance:
       objectReference: {fileID: 2062394206}
     - target: {fileID: 3064274113093171104, guid: a8614a78174a87848b9f147a72f9cefb, type: 3}
       propertyPath: moveSpeed
-      value: 5
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 3064274113093171104, guid: a8614a78174a87848b9f147a72f9cefb, type: 3}
       propertyPath: walkingsfx
