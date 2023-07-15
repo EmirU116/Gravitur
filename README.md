@@ -1,6 +1,23 @@
 # Gravitur
 Gravity 3D Unity Game
 
+# Week 1
+<h3>Third Preview</h1>
+
+
+https://github.com/EmirU116/Gravitur/assets/48198544/cf187699-5b1e-4539-821d-4ef027fbe3eb
+
+
+https://github.com/EmirU116/Gravitur/assets/48198544/b67f4542-0e31-4903-a4d5-e7f83a8351d8
+
+
+
+https://github.com/EmirU116/Gravitur/assets/48198544/3f36d0e6-5c24-465d-941b-b623f87e9cd4
+
+
+
+
+
 <h3>Second Preview</h1>
 
 ![Preview 2](https://github.com/EmirU116/Gravitur/assets/48198544/4518a736-c81d-474f-b448-3ee511d3078d)
