@@ -8,7 +8,10 @@ public class SceneTransisition : MonoBehaviour
     public GameObject GO1;  // scene 1
     public GameObject GO2;  // scene 2 
 
-    [SerializeField] private bool hasChanged;   
+    [SerializeField] private bool hasChanged;
+
+    public GameObject objective;
+    public bool objectiveisopen;
 
     private void Start()
     {
@@ -27,5 +30,12 @@ public class SceneTransisition : MonoBehaviour
 
             hasChanged = true;
         }
+
+        if (other.CompareTag("Player") && objectiveisopen == true)
+        {
+            GO1.SetActive(true);
+            GO2.SetActive(false);
+        }
+        
     }
 }

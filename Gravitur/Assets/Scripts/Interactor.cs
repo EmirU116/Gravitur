@@ -18,7 +18,7 @@ public class Interactor : MonoBehaviour
     public GameObject secretWall;
     public GameObject ObjectiveObject;
 
-    [SerializeField] private bool hasKey;
+    [SerializeField] public bool hasKey;
     
     private float rotationAngle = 90f;
     private GameObject currentInteractable;  // The currently interactable object
@@ -26,6 +26,9 @@ public class Interactor : MonoBehaviour
 
     [SerializeField] private bool doorOpen;
     [SerializeField] private bool accessable;
+    [SerializeField] public bool secretdoorOpen = false;
+
+    private SceneTransisition ST;
 
     [Header("UI")] 
     public Canvas Displayer;
@@ -140,6 +143,7 @@ public class Interactor : MonoBehaviour
         if (interactable.name == "Cylinder")
         {
             secretWall.SetActive(false);
+            ST.objectiveisopen = true;
         }
     }
 
