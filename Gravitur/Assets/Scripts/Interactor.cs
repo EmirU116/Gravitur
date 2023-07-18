@@ -24,9 +24,10 @@ public class Interactor : MonoBehaviour
     private GameObject currentInteractable;  // The currently interactable object
     private Transform Door;
 
-    [SerializeField] private bool doorOpen;
-    [SerializeField] private bool accessable;
+    [SerializeField] public bool doorOpen;
+    [SerializeField] public bool accessable;
     [SerializeField] public bool secretdoorOpen = false;
+    [SerializeField] public bool transitionBack = false;
 
     private SceneTransisition ST;
 
@@ -128,7 +129,7 @@ public class Interactor : MonoBehaviour
     void InteractWithObject(GameObject interactable)
     {
         // Perform the interaction with the object
-        Debug.Log("Interacting with " + interactable.name);
+        //Debug.Log("Interacting with " + interactable.name);
 
         // TODO: Implement your interaction logic here
         // Finding key logic for unlocking door
@@ -143,7 +144,7 @@ public class Interactor : MonoBehaviour
         if (interactable.name == "Cylinder")
         {
             secretWall.SetActive(false);
-            ST.objectiveisopen = true;
+            transitionBack = true;
         }
     }
 

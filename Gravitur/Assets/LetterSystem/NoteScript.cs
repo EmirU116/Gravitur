@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using UnityEditor.VersionControl;
 using UnityEngine;
 using UnityEngine.ProBuilder;
 using UnityEngine.UI;
@@ -12,7 +11,7 @@ using Image = UnityEngine.UI.Image;
 public class NoteScript : MonoBehaviour
 {
     public Canvas UI;
-    public string letterMessage;
+    [TextArea(15, 20)]public string letterMessage;
     public TMP_Text messageText;
     public AudioSource src;
     public AudioClip sfx1, sfx2;

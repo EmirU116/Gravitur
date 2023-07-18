@@ -12,12 +12,23 @@ public class SceneTransisition : MonoBehaviour
 
     public GameObject objective;
     public bool objectiveisopen;
+    [SerializeField] private Interactor _interactor;
 
     private void Start()
     {
         // starting the game with first scene
         GO1.SetActive(true);    
         GO2.SetActive(false);
+    }
+
+    public void Update()
+    {
+        if (_interactor.transitionBack)
+        {
+            objectiveisopen = true;
+            _interactor.accessable = true;
+            _interactor.hasKey = true;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
