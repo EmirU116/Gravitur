@@ -23,11 +23,10 @@ public class SceneTransisition : MonoBehaviour
 
     public void Update()
     {
+        // when finding cylinder, it will let you transition back to scene 1 
         if (_interactor.transitionBack)
         {
             objectiveisopen = true;
-            _interactor.accessable = true;
-            _interactor.hasKey = true;
         }
     }
 
