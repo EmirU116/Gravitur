@@ -30,6 +30,7 @@ public class Interactor : MonoBehaviour
     [SerializeField] public bool transitionBack = false;
 
     private SceneTransisition ST;
+    public AlcholScript alcho;
 
     [Header("UI")] 
     public Canvas Displayer;
@@ -39,6 +40,21 @@ public class Interactor : MonoBehaviour
 
     void Update()
     {
+
+        // timer starts when drinking alchol
+        if (alcho.hasDrank)
+        {
+            alcho.time -= Time.deltaTime;
+        }
+
+        // when timer is or under 0, it will disable the drunk effect 
+        if (alcho.time <= 0)
+        {
+            alcho.time = 0;
+            Debug.Log("TIMES OUT");
+            alcho.blurr.enabled = false;
+            alcho.hasDrank = false;
+        }
         // Check for interaction input
         if (Input.GetKeyDown(KeyCode.E))
         {
@@ -54,6 +70,12 @@ public class Interactor : MonoBehaviour
                 OpenDoor();
                 doorOpen = true;
                 hasKey = false;
+            }
+            
+            // interaction for the whiskey
+            if (alcho.canDrink && CompareTag("Player"))
+            {
+                alcho.AlcoholEffect();
             }
         }
 
@@ -146,6 +168,11 @@ public class Interactor : MonoBehaviour
             secretWall.SetActive(false);
             transitionBack = true;
         }
+
+        // if (interactable.name == "Whiskey")
+        // {
+        //     alcho.AlcoholEffect();
+        // }
     }
 
     void OpenDoor()

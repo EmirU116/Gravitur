@@ -8,6 +8,7 @@ TagManager:
   - Door
   - Key
   - Letter
+  - Whiskey
   layers:
   - Default
   - TransparentFX
