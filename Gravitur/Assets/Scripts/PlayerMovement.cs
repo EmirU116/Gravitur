@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
    [Header("Movement")] 
    public float moveSpeed;
 
+   private Animator walk;
    public Transform orientation;
    
    private float horizontalInput;
@@ -31,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
    
    private void Start()
    {
+      walk = GetComponent<Animator>();
       rb = GetComponent<Rigidbody>();
       rb.freezeRotation = true;
    }
@@ -81,6 +83,7 @@ public class PlayerMovement : MonoBehaviour
       moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
       rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
+      walk.SetBool("IsMoving", true);
    }
 
    void SpeedControl()
