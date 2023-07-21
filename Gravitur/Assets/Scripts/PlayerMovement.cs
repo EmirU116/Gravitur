@@ -29,7 +29,9 @@ public class PlayerMovement : MonoBehaviour
 
    [Header("Sound Effect")] 
    public AudioSource src;
-   
+
+   private static readonly int IsMoving = Animator.StringToHash("IsMoving");
+
    private void Start()
    {
       walk = GetComponent<Animator>();
@@ -83,7 +85,6 @@ public class PlayerMovement : MonoBehaviour
       moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
       rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
-      walk.SetBool("IsMoving", true);
    }
 
    void SpeedControl()
@@ -95,6 +96,11 @@ public class PlayerMovement : MonoBehaviour
       {
          Vector3 limitVel = flatVel.normalized * moveSpeed;
          rb.velocity = new Vector3(limitVel.x, rb.velocity.y, limitVel.z);
+         walk.SetBool(IsMoving, true);
+      }
+      else
+      {
+         walk.SetBool(IsMoving, false);
       }
    }
 }
