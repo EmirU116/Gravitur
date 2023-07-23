@@ -76,7 +76,7 @@ public class PlayerMovement : MonoBehaviour
    {
       horizontalInput = Input.GetAxisRaw("Horizontal");
       verticalInput = Input.GetAxisRaw("Vertical");
-      
+
    }
 
    void MovePlayer()
@@ -96,11 +96,11 @@ public class PlayerMovement : MonoBehaviour
       {
          Vector3 limitVel = flatVel.normalized * moveSpeed;
          rb.velocity = new Vector3(limitVel.x, rb.velocity.y, limitVel.z);
-         walk.SetBool(IsMoving, true);
+         walk.SetBool("IsMoving", true);
       }
       else
       {
-         walk.SetBool(IsMoving, false);
+         walk.SetBool("IsMoving", false);
       }
    }
 }
