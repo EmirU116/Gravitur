@@ -30,8 +30,6 @@ public class PlayerMovement : MonoBehaviour
    [Header("Sound Effect")] 
    public AudioSource src;
 
-   private static readonly int IsMoving = Animator.StringToHash("IsMoving");
-
    private void Start()
    {
       walk = GetComponent<Animator>();
